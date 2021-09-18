@@ -2,13 +2,13 @@ package ar.edu.unq.po2.tp3;
 import java.util.ArrayList;
 
 public class Counter {
-	private ArrayList<Integer> list;
+	private ArrayList<Integer> list = new ArrayList<Integer>();
 
 	public ArrayList<Integer> getList() {
 		return list;
 	}
-	public void setList(ArrayList<Integer> list) {
-		this.list = list;
+	public void setList(ArrayList<Integer> nlist) {
+		list = nlist;
 	}
 	
 	public int unoSi(boolean condition) {
@@ -29,22 +29,22 @@ public class Counter {
 		}
 	}
 	
-	public int getEvenOcurrences() {
-		int evenNumbers = 0;
+	public int getNPares() {
+		int pares = 0;
 		for (int i : this.getList()) {
-			evenNumbers = evenNumbers + unoSi(esPar(i));
+			pares = pares + unoSi(esPar(i));
 		}
 		
-		return evenNumbers;
+		return pares;
 	}
 	
-	public int getOddOcurrences() {
-		int oddNumbers = 0;
+	public int getNImpares() {
+		int impares = 0;
 		for (int i : this.getList()) {
-			oddNumbers = oddNumbers + unoSi(!esPar(i));
+			impares = impares + unoSi(!esPar(i));
 		}
 		
-		return oddNumbers;
+		return impares;
 	}
 	
 	public int cantidadDeMultiplosDe(int multiplo) {
@@ -54,5 +54,9 @@ public class Counter {
 		}
 		
 		return multiplosVistos;
+	}
+	
+	public void addNumber(int i) {
+		this.list.add(i);
 	}
 }
