@@ -6,10 +6,10 @@ public class Rectangulo {
 	int altura;
 	int base;
 	
-	public Rectangulo(Punto rOrigen, int rBase, int rAltura) {
-		this.setOrigen(rOrigen);
-		this.setAltura(rAltura);
-		this.setBase(rBase);
+	public Rectangulo(Punto recOrigen, int recBase, int recAltura) {
+		this.setOrigen(recOrigen);
+		this.setAltura(recAltura);
+		this.setBase(recBase);
 	}
 	
 	public int area(Rectangulo r) {

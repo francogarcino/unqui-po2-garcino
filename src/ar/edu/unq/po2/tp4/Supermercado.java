@@ -15,15 +15,19 @@ public class Supermercado {
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	public String getDireccion() {
 		return direccion;
 	}
+	
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	
 	public ArrayList<ProductosEnVenta> getProductos() {
 		return productos;
 	}
@@ -37,12 +41,12 @@ public class Supermercado {
 	}
 
 	public double getPrecioTotal() {
-		double s = 0.0;
+		double total = 0.0;
 		for (ProductosEnVenta p : productos) {
-			s = s + p.getPrecio();
+			total = total + p.getPrecio();
 		}
 		
-		return s;
+		return total;
 	}
 	
 }

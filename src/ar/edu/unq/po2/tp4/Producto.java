@@ -16,9 +16,8 @@ public class Producto extends ProductosEnVenta {
 
 	@Override
 	public double getPrecio() {
+		// se sobreescribe el comportamiento ante el mensaje getPrecio
 		return this.precio;
 	}
-	
-	
 	
 }

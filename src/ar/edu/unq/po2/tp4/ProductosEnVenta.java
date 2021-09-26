@@ -5,13 +5,16 @@ public abstract class ProductosEnVenta {
 	String nombre;
 	double precio;
 	boolean precioCuidado;
+	
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
+	// metodo a definir en cada subclase
 	public abstract double getPrecio();
 	
 	public void setPrecio(double precio) {
@@ -26,8 +29,8 @@ public abstract class ProductosEnVenta {
 		this.precioCuidado = precioCuidado;
 	}
 	
-	public void aumentarPrecio(double nprecio) {
-		this.setPrecio(this.precio + nprecio);
+	public void aumentarPrecio(double aumento) {
+		this.setPrecio(this.precio + aumento);
 	}
 	
 }

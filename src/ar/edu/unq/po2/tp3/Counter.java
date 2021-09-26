@@ -1,14 +1,12 @@
 package ar.edu.unq.po2.tp3;
+
 import java.util.ArrayList;
 
 public class Counter {
-	private ArrayList<Integer> list = new ArrayList<Integer>();
+	private ArrayList<Integer> numeros = new ArrayList<Integer>();
 
 	public ArrayList<Integer> getList() {
-		return list;
-	}
-	public void setList(ArrayList<Integer> nlist) {
-		list = nlist;
+		return numeros;
 	}
 	
 	public int unoSi(boolean condition) {
@@ -18,15 +16,13 @@ public class Counter {
 			return 0;
 		}
 	}
+	
 	public boolean esPar(int n) {
 		return n % 2 == 0;
 	}
+	
 	public boolean esMultiplo(int n, int m) {
-		if (n%m == 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return (n%m == 0);
 	}
 	
 	public int getNPares() {
@@ -57,6 +53,7 @@ public class Counter {
 	}
 	
 	public void addNumber(int i) {
-		this.list.add(i);
+		this.numeros.add(i);
 	}
+	
 }
