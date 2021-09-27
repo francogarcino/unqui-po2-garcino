@@ -1,15 +1,17 @@
 package ar.edu.unq.po2.tp4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Supermercado {
 	String nombre;
 	String direccion;
-	ArrayList<ProductosEnVenta> productos = new ArrayList<ProductosEnVenta>();
+	List<ProductosEnVenta> productos;
 	
 	public Supermercado(String nombre, String direccion) {
 		this.setDireccion(direccion);
 		this.setNombre(nombre);
+		this.productos = new ArrayList<ProductosEnVenta>();
 	}
 	
 	public String getNombre() {
@@ -28,7 +30,7 @@ public class Supermercado {
 		this.direccion = direccion;
 	}
 	
-	public ArrayList<ProductosEnVenta> getProductos() {
+	public List<ProductosEnVenta> getProductos() {
 		return productos;
 	}
 	
