@@ -34,6 +34,14 @@ public enum ColorLesion {
 		this.nivelRiesgo = i;
 	}
 	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public int getNivelRiesgo() {
+		return nivelRiesgo;
+	}
+
 	public abstract ColorLesion siguiente();
 	
 }

@@ -14,11 +14,10 @@ public class ActividadSemanal {
 		this.deporte =deporte;
 	}
 	
+	// ------------------------------------------------------------------
+	
 	public double costo() {
-		double x;
-		x = this.valorPorDia() + this.precioPorComplejidad();
-		
-		return x;
+		return (this.valorPorDia() + this.precioPorComplejidad());
 	}
 
 	private double precioPorComplejidad() {
@@ -35,12 +34,35 @@ public class ActividadSemanal {
 		}
 	}
 
+	// ------------------------------------------------------------------
+	
 	public boolean esDe(Deporte dep) {
 		return this.getDeporte() == dep;
 	}
 
+	// ------------------------------------------------------------------
+	
+	@Override
+	public String toString() {
+		return ("Deporte: " + this.getDeporte() + " Dia: " + this.dia + " A LAS: " + this.horaInicio + " Duración: " + (this.duracion / 60) + " hora(s)");
+	}
+
+	// ------------------------------------------------------------------
+	
 	public Deporte getDeporte() {
 		return deporte;
+	}
+	
+	public DiaDeLaSemana getDia() {
+		return dia;
+	}
+
+	public String getHoraInicio() {
+		return horaInicio;
+	}
+
+	public int getDuracion() {
+		return duracion;
 	}
 	
 }
