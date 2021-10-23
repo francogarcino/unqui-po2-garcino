@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp6;
+package ar.edu.unq.po2.tp6.email;
 
 public interface IServidor {
 
