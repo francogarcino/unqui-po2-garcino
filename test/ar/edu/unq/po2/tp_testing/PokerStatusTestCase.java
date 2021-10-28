@@ -19,8 +19,17 @@ class PokerStatusTestCase {
 	// Exercise & Verify
 	@Test
 	void test() {
-		assertFalse(poker.verificar("2D", "AC", "4C", "4T", "QP"));
-		assertTrue(poker.verificar("2D", "2C", "4C", "2T", "2P"));
+		// es poker
+		assertEquals(poker.verificar("2C", "2D", "2T", "2P", "AC"), "Poker");
+		
+		// es trio
+		assertEquals(poker.verificar("7T", "7C", "7P", "3D", "QC"), "Trio");
+		
+		// es color
+		assertEquals(poker.verificar("3C", "7C", "AC", "KC", "10C"), "Color");
+		
+		// no es nada
+		assertEquals(poker.verificar("3C", "8D", "AD", "9P", "KT"), "Nada");
 	}
 
 }

@@ -7,13 +7,48 @@ import java.util.Map;
 
 public class PokerStatus {
 
-	public boolean verificar(String carta1, String carta2, String carta3, String carta4, String carta5) {
-		List<String> cartas = this.toValues(carta1, carta2, carta3, carta4, carta5);
-		
-		return this.countFrequencies(cartas).containsValue(4);
+	public String verificar(String carta1, String carta2, String carta3, String carta4, String carta5) {
+		if (this.esPoker(carta1, carta2, carta3, carta4, carta5)) {
+			return "Poker";
+		} else if (this.esTrio(carta1, carta2, carta3, carta4, carta5)) {
+			return "Trio";
+		} else if (this.esColor(carta1, carta2, carta3, carta4, carta5)) {
+			return "Color";
+		} else {
+			return "Nada";
+		}
 	}
 
-	public List<String> toValues(String carta1, String carta2, String carta3, String carta4, String carta5) {
+	private boolean esColor(String carta1, String carta2, String carta3, String carta4, String carta5) {
+		return this.toPalos(carta1, carta2, carta3, carta4, carta5).stream().distinct().toList().size() == 1;
+	}
+	
+	private List<String> toPalos(String carta1, String carta2, String carta3, String carta4, String carta5) {
+		List<String> palos = new ArrayList<String>();
+		palos.add(this.paloCarta(carta1));
+		palos.add(this.paloCarta(carta2));
+		palos.add(this.paloCarta(carta3));
+		palos.add(this.paloCarta(carta4));
+		palos.add(this.paloCarta(carta5));
+		
+		return palos;
+	}
+
+	private String paloCarta(String carta) {
+		return carta.substring(carta.length() - 1, carta.length());
+	}
+
+	private boolean esTrio(String carta1, String carta2, String carta3, String carta4, String carta5) {
+		Map<String, Integer> aparicionesValor = this.countFrequencies(this.toValues(carta1, carta2, carta3, carta4, carta5));
+		return aparicionesValor.containsValue(3);
+	}
+
+	private boolean esPoker(String carta1, String carta2, String carta3, String carta4, String carta5) {
+		Map<String, Integer> aparicionesValor = this.countFrequencies(this.toValues(carta1, carta2, carta3, carta4, carta5));
+		return aparicionesValor.containsValue(4);
+	}
+
+	private List<String> toValues(String carta1, String carta2, String carta3, String carta4, String carta5) {
 		List<String> valores = new ArrayList<String>();
 		valores.add(this.valorCarta(carta1));
 		valores.add(this.valorCarta(carta2));
@@ -27,7 +62,6 @@ public class PokerStatus {
 	private String valorCarta(String carta) {
 		return carta.substring(0, carta.length() - 1);
 	}
-	
 	
 	public Map<String, Integer> countFrequencies(List<String> list) {
         // Codigo extraido de StackOverflow; el funcionamiento es:
