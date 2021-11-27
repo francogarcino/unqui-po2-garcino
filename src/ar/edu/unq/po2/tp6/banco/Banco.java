@@ -3,7 +3,7 @@ package ar.edu.unq.po2.tp6.banco;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Banco {
+public class Banco implements SistemaBancario{
 
 	private List<Cliente> clientes;
 	private List<SolicitudCredito> solicitudes;
@@ -25,6 +25,14 @@ public class Banco {
 	public void registrarSolicitudHipotecario(Cliente cliente, double monto, int meses, Propiedad garantia) {
 		SolicitudCredito credito = new CreditoHipotecario(cliente, monto, meses, garantia); 
 		this.solicitudes.add(credito);
+	}
+
+	@Override
+	public double montoADesembolsar() {
+		double suma = this.solicitudes.stream().filter(s -> s.esAceptable()).mapToDouble(m -> m.getMonto()).sum();
+		// se consigue el stream >> se filtra obteniendo los aceptables >> se mapea a double >> se suma
+		
+		return suma;
 	}
 	
 }

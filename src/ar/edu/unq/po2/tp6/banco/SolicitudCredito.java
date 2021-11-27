@@ -11,5 +11,9 @@ public abstract class SolicitudCredito {
 	public double valorCuota() {
 		return monto/plazo;
 	}
+
+	public double getMonto() {
+		return this.monto;
+	}
 	
 }
